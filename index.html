@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>MEGA VALENTINE 💖</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<style>
+
+body{
+margin:0;
+height:100vh;
+background:radial-gradient(circle,#ffb3d9,#ff3b7a);
+display:flex;
+align-items:center;
+justify-content:center;
+overflow:hidden;
+font-family:'Pacifico',cursive;
+}
+
+.card{
+width:360px;
+border-radius:25px;
+padding:20px;
+text-align:center;
+box-shadow:0 20px 40px rgba(0,0,0,.3);
+animation:pop .6s;
+z-index:2;
+}
+.counter{
+background:#ffe6ef;
+border-radius:15px;
+padding:10px;
+font-size:15px;
+box-shadow:0 5px 15px rgba(0,0,0,.2);
+}
+
+@keyframes pop{from{transform:scale(.7)}to{transform:scale(1)}}
+
+.zone{height:150px;position:relative}
+#no{position:absolute;left:60%;top:60%}
+
+.hearts span{
+position:absolute;
+font-size:20px;
+animation:float 6s linear infinite;
+opacity:.6;
+}
+
+@keyframes float{
+0%{transform:translateY(100vh)}
+100%{transform:translateY(-10vh)}
+}
+
+img{border-radius:15px}
+
+.couple{font-size:60px;animation:pulse 1s infinite alternate}
+@keyframes pulse{to{transform:scale(1.15)}}
+
+.kiss,.hug{font-size:70px;animation:pulse 1s infinite alternate}
+
+.neon{
+font-size:34px;
+color:#fff;
+text-shadow:0 0 10px #ff0080,0 0 20px #ff0080;
+}
+
+.week{font-size:60px}
+
+</style>
+</head>
+
+<body>
+
+<div class="hearts" id="bg"></div>
+
+<audio id="song" autoplay loop>
+<source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_2c6a78c9f1.mp3">
+</audio>
+
+<div class="card bg-white">
+
+<!-- PAGE 1 -->
+<div id="p1">
+<div class="couple">👩‍❤️‍👨</div>
+<h4 id="text"></h4>
+
+<div class="zone">
+<button class="btn btn-danger rounded-pill px-4" id="yes">Yes</button>
+<button class="btn btn-secondary rounded-pill px-4" id="no">No</button>
+</div>
+</div>
+
+<!-- PAGE 2 -->
+<div id="p2" class="d-none">
+    <h3>
+        Shemdi Bayko Mazi  💖
+    </h3>
+<p>
+
+Majhya ayushyat alyasathi thank you ❤️
+
+<br>
+<br>
+Tu maza Shwas Ahe janu . Mi Tula Khup Prem Krto Itk ki tu Vichar Pan nahi Kru skT shemdu 
+Tujha awaaz aikla ki
+man aapoaap shant hota… ekdum gharasarkha.
+Ani majhya pratyek shwasat, pratyek hrudayachya thokyat
+fakta tujhach naav jivant ahe. 💫❤️
+<br>
+<br>
+Ata pssun Nahi shemdi Jeva mi Tula first time bagital ah 25 - December - 2021 Teva pasun Mi Pagal Zala tuza Sathi shemdi . 
+<BR></BR>
+Mala evdya Gost Athavan yeta ani lihu vate ki he maz Website atach Crash houn jail mhnu mi jast nhi lihat but ej chij sagti awlwas Love you max janu . 
+<br>
+<br>
+Smjaa Ji 
+ 
+
+</p>
+
+<button class="btn btn-danger w-100" onclick="kiss()">Continue</button>
+</div>
+
+
+
+<!-- PAGE 3 -->
+<div id="p3" class="d-none">
+<div class="kiss">😘</div>
+<p>This kiss is only for you  Shemdi MAzi </p>
+<button class="btn btn-danger w-100" onclick="week1()">Start Valentine Week</button>
+</div>
+
+<!-- Valentine Week -->
+
+<div id="w1" class="d-none">
+<div class="week">🌹</div>
+<p>ये गुलाब मेरे गुलाब के लिए</p>
+<button class="btn btn-danger w-100" onclick="week2()">Next</button>
+</div>
+
+<div id="w2" class="d-none">
+<div class="week">🍫</div>
+<p>मेरी chocolate जैसी जान के लिए chocolate</p>
+<button class="btn btn-danger w-100" onclick="week3()">Next</button>
+</div>
+
+<div id="w3" class="d-none">
+<div class="week">🧸</div>
+<p>teddy hug सिर्फ तुम्हारे लिए</p>
+<button class="btn btn-danger w-100" onclick="week4()">Next</button>
+</div>
+
+<div id="w4" class="d-none">
+<div class="week">🤝</div>
+<p>Shemdi Tula promise krto konsa pan halat madhe kadhi hi tula sodun nhi janar </p>
+<button class="btn btn-danger w-100" onclick="week5()">Next</button>
+</div>
+
+<div id="w5" class="d-none">
+<div class="week">🤗</div>
+<p>hug day — ये वाली झप्पी तुम्हारी</p>
+<button class="btn btn-danger w-100" onclick="week6()">Next</button>
+</div>
+
+<div id="w6" class="d-none">
+<div class="week">💋</div>
+<p>kiss day — सिर्फ मेरी जान के लिए</p>
+<button class="btn btn-danger w-100" onclick="week7()">Next</button>
+</div>
+
+<div id="w7" class="d-none">
+<div class="neon">I LOVE YOU JANU ❤️</div>
+<button class="btn btn-danger w-100 mt-2" onclick="count()">Next</button>
+</div>
+<!-- COUNTDOWN PAGE -->
+<div id="count" class="d-none">
+
+<h5>💖 First Time baghun </h5>
+<div class="counter" id="see"></div>
+
+<h5 class="mt-3">💍 Propose Karun Itke Days Zale </h5>
+<div class="counter" id="prop"></div>
+
+<h5 class="mt-3">⏳ Next Meet Countdown</h5>
+<div class="counter" id="meet"></div>
+
+<button class="btn btn-danger w-100 mt-3" onclick="final()">Final Surprise</button>
+
+</div>
+<!-- FINAL PAGE -->
+<div id="final" class="d-none">
+<div class="neon">LOVE YOU JANU SO MUCH ❤️</div>
+<p>I choose you. Always.</p>
+
+<h5>Rate My Gift ⭐</h5>
+<h5>And Share Me ScreenShort Babe </h5>
+
+<div id="stars" style="font-size:30px">
+<span onclick="rateStar(1)">☆</span>
+<span onclick="rateStar(2)">☆</span>
+<span onclick="rateStar(3)">☆</span>
+<span onclick="rateStar(4)">☆</span>
+<span onclick="rateStar(5)">☆</span>
+</div>
+
+</div>
+
+<script>
+
+const msg="Lokesh will you be my Valentine ?";
+let i=0;
+
+(function type(){
+if(i<msg.length){
+text.innerHTML+=msg.charAt(i++);
+setTimeout(type,80);
+}
+})();
+
+no.onmouseover=()=>{
+no.style.left=Math.random()*120+"px";
+no.style.top=Math.random()*120+"px";
+}
+
+yes.onclick=()=>{
+p1.classList.add("d-none");
+p2.classList.remove("d-none");
+boom();
+}
+
+function kiss(){
+p2.classList.add("d-none");
+p3.classList.remove("d-none");
+boom();
+}
+
+function week1(){p3.classList.add("d-none");w1.classList.remove("d-none");boom();}
+function week2(){w1.classList.add("d-none");w2.classList.remove("d-none");boom();}
+function week3(){w2.classList.add("d-none");w3.classList.remove("d-none");boom();}
+function week4(){w3.classList.add("d-none");w4.classList.remove("d-none");boom();}
+function week5(){w4.classList.add("d-none");w5.classList.remove("d-none");boom();}
+function week6(){w5.classList.add("d-none");w6.classList.remove("d-none");boom();}
+function week7(){w6.classList.add("d-none");w7.classList.remove("d-none");boom();}
+
+function count(){
+w7.classList.add("d-none");
+countPage.classList.remove("d-none");
+}
+
+function final(){
+countPage.classList.add("d-none");
+finalPage.classList.remove("d-none");
+fireworks();
+}
+
+const countPage=document.getElementById("count");
+const finalPage=document.getElementById("final");
+
+const fx=confetti.create(document.body,{resize:true});
+
+function boom(){
+fx({particleCount:120,spread:160});
+}
+
+function fireworks(){
+let end=Date.now()+5000;
+(function f(){
+fx({particleCount:40,spread:360,origin:{x:Math.random(),y:Math.random()}});
+if(Date.now()<end)requestAnimationFrame(f);
+})();
+}
+
+/* Counters */
+
+const seen=new Date("2021-12-25T00:00:00");
+const prop=new Date("2024-05-01T00:00:00");
+const meet=new Date("2026-02-15T00:00:00");
+
+setInterval(()=>{
+
+let now=new Date();
+
+document.getElementById("see").innerHTML = timeDiff(seen,now);
+document.getElementById("prop").innerHTML = timeDiff(prop,now);
+document.getElementById("meet").innerHTML = countDown(meet,now);
+
+},1000);
+
+function timeDiff(a,b){
+let s=Math.floor((b-a)/1000);
+let d=Math.floor(s/86400);s%=86400;
+let h=Math.floor(s/3600);s%=3600;
+let m=Math.floor(s/60);s%=60;
+
+return `
+${d} Days ❤️ <br>
+${h} Hours ⏰ <br>
+${m} Minutes 💕 <br>
+${s} Seconds 💖
+`;
+}
+
+function countDown(a,b){
+let s=Math.floor((a-b)/1000);
+if(s<0)return "Very Soon My Love ❤️";
+
+let d=Math.floor(s/86400);s%=86400;
+let h=Math.floor(s/3600);s%=3600;
+let m=Math.floor(s/60);s%=60;
+
+return `
+${d} Days 💘 <br>
+${h} Hours ⏳ <br>
+${m} Minutes 💞 <br>
+${s} Seconds 💓
+`;
+}
+/* Rating + emoji rain */
+
+
+for(let i=0;i<40;i++){
+let s=document.createElement("span");
+s.innerHTML="❤️";
+s.style.left=Math.random()*100+"vw";
+s.style.animationDuration=3+Math.random()*4+"s";
+bg.appendChild(s);
+}
+
+function rateStar(n){
+
+let stars=document.querySelectorAll("#stars span");
+
+stars.forEach((s,i)=>{
+s.innerHTML = i < n ? "⭐" : "☆";
+});
+
+fireworks(); // small celebration
+}
+</script>
+
+</body>
+</html>
